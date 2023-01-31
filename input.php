@@ -1,10 +1,22 @@
 <?php
+	$hour = date('H');
+	$date = date('d');
+	if ($hour > 15) {
+		$date -= 15;
+	}
+	$hour += 8;
+	$todaydate = date('n') . "/" . $date . "/" . $hour . ":" . date('i') . ":" . date('s');
     function inputter($putting){
-		$filename = fopen('chatlog.txt', "a");
+		$filename = fopen('./date/chatlog.txt', "a");
 		fputs($filename, $putting);
 		fclose($filename);
     }
-    $inter = date('n') . "月" . date('d') . "日" . date('H') . "時" . date('i') . "分" . date('s') . "秒" . " " . $_POST['name'] . " : " . $_POST['maintext'] . "\n";
-    inputter($inter);
-    header('Location: chat.php');
+	if (!strlen($_POST['maintext'])) {
+		header('Location: chat.php');
+	}else {
+		$inter = $_POST['name'] . " : " . $_POST['maintext'] ."　　　". $todaydate ."\n";
+	inputter($inter);
+    	header('Location: chat.php');
+	}
+    
 ?>

@@ -15,12 +15,19 @@
 		</form>
 		<button onclick="location.reload();">メッセージ更新</button>
 		<hr>
+		<p style="color:blue;">名前は上段、文は下段に入れて送信してください。</p>
 			<?php
-				$fp = fopen("chatlog.txt", "r");
-				while ($line = fgets($fp)) {
-				  print "<p>$line<p>";
+				$fp = fopen('./date/chatlog.txt','r');
+				$maneof = 0;
+				for($i = 0;!feof($fp);$i++)
+				{
+				$line[$i] = fgets($fp);
+				$maneof++;
 				}
-				fclose($fp);
+				$maneof--;
+				for(; $maneof >= 0; $maneof--) { 
+					print "<p>" . $line[$maneof] . "</p>";
+				}
 			?>
 	</body>
 </html>
