@@ -7,7 +7,7 @@
 	$hour += 8;
 	$todaydate = date('n') . "/" . $date . "/" . $hour . ":" . date('i') . ":" . date('s');
     function inputter($putting){
-		$filename = fopen('./date/chatlog.txt', "a");
+		$filename = fopen('.chatlog.txt', "a");
 		fputs($filename, $putting);
 		fclose($filename);
     }
