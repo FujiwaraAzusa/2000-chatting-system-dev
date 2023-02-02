@@ -1,13 +1,14 @@
 <?php
 	$hour = date('H');
 	$date = date('d');
-	if ($hour > 15) {
-		$date -= 15;
-	}
 	$hour += 8;
+	if ($hour > 23) {
+		$date += 1;
+		$hour =- 24;
+	}
 	$todaydate = date('n') . "/" . $date . "/" . $hour . ":" . date('i') . ":" . date('s');
     function inputter($putting){
-		$filename = fopen('.chatlog.txt', "a");
+		$filename = fopen('./date/chatlog.txt', "a");
 		fputs($filename, $putting);
 		fclose($filename);
     }

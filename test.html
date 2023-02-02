@@ -2,25 +2,12 @@
 	<head>
 		<metahttp-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="UTF-8">
-		<title>チャット</title>
+		<title>テスト環境</title>
 	</head>
-	<style>h1,h2,h3,p,a{color: white;}</style>
-	<body style="background-color:black">
-		<script>
-			function send() {
-
-			}
-		</script>
-		<div style="margin-left: 2%;margin-right: 2%;margin-top: 3%;">
-		<h2>チャット(掲示板型)</h2>
-		<form action="./input.php" method="post">
-			<input type="text" size="10" name="name"><br>
-			<input type="text" size="100" name="maintext"><br>
-		</form><button onclick="send()">送信</button>
-		<button onclick="location.reload();">メッセージ更新</button>
-		<hr>
-		<div id="chat">
-			
-		</div>
+		<form action="receivefile.php" method="post" enctype=”multipart/form-data”>
+			<input type="file" name="file">
+			<input type="submit" value="アップロード">
+		</form>
+		<a href="./up_for_personal.php">ファイルアップローダー(個人用)</a>
 	</body>
 </html>
